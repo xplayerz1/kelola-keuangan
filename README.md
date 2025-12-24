@@ -24,7 +24,7 @@ Aplikasi web untuk mengelola keuangan organisasi dengan fitur lengkap termasuk m
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/ZIKK23/kelola-keuangan.git
+git clone https://github.com/xplayerz1/kelola-keuangan.git
 cd kelola-keuangan
 ```
 
