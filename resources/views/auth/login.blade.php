@@ -79,15 +79,6 @@
                 </button>
             </div>
         </form>
-        
-        <!-- Demo Credentials -->
-        <div class="alert alert-info mt-4 mb-0">
-            <strong><i class="fas fa-info-circle me-1"></i> Akun Demo:</strong><br>
-            <small>
-                Email: <code>admin@hmsi.or.id</code><br>
-                Password: <code>password123</code>
-            </small>
-        </div>
     </div>
     
     <div class="auth-footer">
