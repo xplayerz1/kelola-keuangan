@@ -107,13 +107,15 @@ kelola-keuangan/
 └── public/                  # Public assets
 ```
 
-## 🌐 API Integration
+## 🌐 API Integration (5 API)
 
-| API                   | Kegunaan                      |
-| --------------------- | ----------------------------- |
-| KBBI API              | Saran kata untuk kategori     |
-| Exchange Rate API     | Kurs mata uang (USD/IDR)      |
-| Wilayah Indonesia API | Dropdown provinsi/kab/kec/kel |
+| No  | API                   | Kegunaan                              |
+| --- | --------------------- | ------------------------------------- |
+| 1   | KBBI API              | Saran kata untuk nama kategori        |
+| 2   | Exchange Rate API     | Kurs mata uang USD ke IDR             |
+| 3   | Wilayah Indonesia API | Dropdown provinsi/kabupaten/kecamatan |
+| 4   | Chart.js API          | Visualisasi grafik saldo              |
+| 5   | World Time API        | Timestamp akurat untuk laporan        |
 
 ## 🛠 Tech Stack
 
