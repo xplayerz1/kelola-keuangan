@@ -126,9 +126,7 @@ Route::middleware(['auth'])->group(function () {
             Route::put('{id}', [App\Http\Controllers\SaldoController::class, 'update'])->name('saldo.update');
             Route::delete('{id}', [App\Http\Controllers\SaldoController::class, 'destroy'])->name('saldo.destroy');
             
-            // Excel Export
-            Route::get('export-excel', [App\Http\Controllers\SaldoController::class, 'exportExcel'])->name('saldo.export.excel');
-            
+
             // Chart.js API endpoint
             Route::get('api/chart', [App\Http\Controllers\SaldoController::class, 'getChartData'])->name('saldo.api.chart');
             
@@ -166,9 +164,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('laporan/{id}', [App\Http\Controllers\LaporanController::class, 'show'])->name('laporan.show');
     Route::get('laporan/{id}/pdf', [App\Http\Controllers\LaporanController::class, 'exportPDF'])->name('laporan.pdf');
     
-    // Saldo Export - All authenticated users
-    Route::get('saldo/export', [App\Http\Controllers\SaldoController::class, 'exportExcel'])->name('saldo.export');
-    
+
     // Profile routes - All authenticated users
     Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
     Route::put('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');

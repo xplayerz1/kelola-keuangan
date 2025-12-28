@@ -136,7 +136,7 @@
                 <ul class="small mb-0">
                     <li>Laporan yang sudah dibuat tidak akan berubah jika ada transaksi baru</li>
                     <li>Status "Draft" hanya bisa dilihat Admin/Bendahara</li>
-                    <li>Laporan bisa di-export ke PDF & Excel</li>
+                    <li>Laporan bisa di-export ke PDF</li>
                 </ul>
             </div>
         </div>

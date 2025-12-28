@@ -22,9 +22,6 @@
                     <i class="fas fa-sync"></i> Sync Data
                 </button>
             </form>
-            <a href="{{ route('saldo.export.excel', ['saldo_id' => $activeSaldo->id]) }}" class="btn btn-success">
-                <i class="fas fa-file-excel"></i> Export Excel
-            </a>
             @endif
         @endif
     </div>

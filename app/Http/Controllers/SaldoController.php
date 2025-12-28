@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\MasterSaldo;
 use App\Models\HistoriSaldo;
 use App\Models\Transaction;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\HistoriSaldoExport;
+
 
 class SaldoController extends Controller
 {
@@ -213,22 +212,6 @@ class SaldoController extends Controller
         return back()->with('error', 'Hanya periode aktif yang dapat ditutup.');
     }
 
-    /**
-     * Export histori saldo to Excel
-     */
-    public function exportExcel(Request $request)
-    {
-        $saldoId = $request->get('saldo_id');
-        
-        if ($saldoId) {
-            $saldo = MasterSaldo::findOrFail($saldoId);
-            $filename = 'Histori_Saldo_' . $saldo->periode . '_' . date('Y-m-d') . '.xlsx';
-        } else {
-            $filename = 'Histori_Saldo_All_' . date('Y-m-d') . '.xlsx';
-        }
-        
-        return Excel::download(new HistoriSaldoExport($saldoId), $filename);
-    }
 
     /**
      * Get saldo data for Chart.js (API endpoint)

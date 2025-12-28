@@ -18,9 +18,6 @@
         <a href="{{ route('saldo.edit', $saldo->id) }}" class="btn btn-primary">
             <i class="fas fa-edit"></i> Edit
         </a>
-        <a href="{{ route('saldo.export.excel', ['saldo_id' => $saldo->id]) }}" class="btn btn-success">
-            <i class="fas fa-file-excel"></i> Export Excel
-        </a>
         @if($saldo->status === 'aktif')
         <form action="{{ route('saldo.destroy', $saldo->id) }}" method="POST" class="d-inline"
               onsubmit="return confirm('Yakin ingin menutup periode ini?')">
