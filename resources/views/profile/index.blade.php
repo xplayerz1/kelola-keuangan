@@ -135,38 +135,53 @@
                             <!-- Current Password -->
                             <div class="mb-3">
                                 <label for="current_password" class="form-label">Password Saat Ini <span class="text-danger">*</span></label>
-                                <input type="password" 
-                                       class="form-control @error('current_password') is-invalid @enderror" 
-                                       id="current_password" 
-                                       name="current_password" 
-                                       required>
-                                @error('current_password')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+                                <div class="input-group">
+                                    <input type="password" 
+                                           class="form-control @error('current_password') is-invalid @enderror" 
+                                           id="current_password" 
+                                           name="current_password" 
+                                           required>
+                                    <button class="btn btn-outline-secondary" type="button" id="toggleCurrentPassword">
+                                        <i class="fas fa-eye" id="toggleCurrentPasswordIcon"></i>
+                                    </button>
+                                    @error('current_password')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
                             </div>
 
                             <!-- New Password -->
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password Baru <span class="text-danger">*</span></label>
-                                <input type="password" 
-                                       class="form-control @error('password') is-invalid @enderror" 
-                                       id="password" 
-                                       name="password" 
-                                       required>
+                                <div class="input-group">
+                                    <input type="password" 
+                                           class="form-control @error('password') is-invalid @enderror" 
+                                           id="password" 
+                                           name="password" 
+                                           required>
+                                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                        <i class="fas fa-eye" id="togglePasswordIcon"></i>
+                                    </button>
+                                    @error('password')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
                                 <small class="text-muted">Minimal 8 karakter</small>
-                                @error('password')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
                             </div>
 
                             <!-- Confirm Password -->
                             <div class="mb-3">
                                 <label for="password_confirmation" class="form-label">Konfirmasi Password Baru <span class="text-danger">*</span></label>
-                                <input type="password" 
-                                       class="form-control" 
-                                       id="password_confirmation" 
-                                       name="password_confirmation" 
-                                       required>
+                                <div class="input-group">
+                                    <input type="password" 
+                                           class="form-control" 
+                                           id="password_confirmation" 
+                                           name="password_confirmation" 
+                                           required>
+                                    <button class="btn btn-outline-secondary" type="button" id="togglePasswordConfirmation">
+                                        <i class="fas fa-eye" id="togglePasswordConfirmationIcon"></i>
+                                    </button>
+                                </div>
                             </div>
 
                             <!-- Buttons -->
@@ -268,6 +283,54 @@ document.getElementById('provinsi').addEventListener('change', async function() 
 document.getElementById('kabkota').addEventListener('change', function() {
     const kabkotaText = this.options[this.selectedIndex].text;
     document.getElementById('kabkota_nama').value = kabkotaText !== '-- Pilih Kota/Kabupaten --' ? kabkotaText : '';
+});
+
+// Toggle current password visibility
+document.getElementById('toggleCurrentPassword').addEventListener('click', function() {
+    const passwordInput = document.getElementById('current_password');
+    const toggleIcon = document.getElementById('toggleCurrentPasswordIcon');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        toggleIcon.classList.remove('fa-eye-slash');
+        toggleIcon.classList.add('fa-eye');
+    }
+});
+
+// Toggle new password visibility
+document.getElementById('togglePassword').addEventListener('click', function() {
+    const passwordInput = document.getElementById('password');
+    const toggleIcon = document.getElementById('togglePasswordIcon');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        toggleIcon.classList.remove('fa-eye-slash');
+        toggleIcon.classList.add('fa-eye');
+    }
+});
+
+// Toggle password confirmation visibility
+document.getElementById('togglePasswordConfirmation').addEventListener('click', function() {
+    const passwordInput = document.getElementById('password_confirmation');
+    const toggleIcon = document.getElementById('togglePasswordConfirmationIcon');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        toggleIcon.classList.remove('fa-eye-slash');
+        toggleIcon.classList.add('fa-eye');
+    }
 });
 </script>
 @endsection

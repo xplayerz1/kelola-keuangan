@@ -57,15 +57,20 @@
                     <!-- Password -->
                     <div class="mb-3">
                         <label for="password" class="form-label">Password Baru</label>
-                        <input type="password" 
-                               class="form-control @error('password') is-invalid @enderror" 
-                               id="password" 
-                               name="password" 
-                               minlength="8">
+                        <div class="input-group">
+                            <input type="password" 
+                                   class="form-control @error('password') is-invalid @enderror" 
+                                   id="password" 
+                                   name="password" 
+                                   minlength="8">
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                <i class="fas fa-eye" id="togglePasswordIcon"></i>
+                            </button>
+                            @error('password')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
                         <small class="text-muted">Kosongkan jika tidak ingin mengubah password</small>
-                        @error('password')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
                     </div>
                     
                     <!-- Role -->
@@ -274,6 +279,22 @@ document.getElementById('provinsi').addEventListener('change', async function() 
 document.getElementById('kabkota').addEventListener('change', function() {
     const kabkotaText = this.options[this.selectedIndex].text;
     document.getElementById('kabkota_nama').value = kabkotaText !== '-- Pilih Kota/Kabupaten --' ? kabkotaText : '';
+});
+
+// Toggle password visibility
+document.getElementById('togglePassword').addEventListener('click', function() {
+    const passwordInput = document.getElementById('password');
+    const toggleIcon = document.getElementById('togglePasswordIcon');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        toggleIcon.classList.remove('fa-eye-slash');
+        toggleIcon.classList.add('fa-eye');
+    }
 });
 </script>
 @endsection

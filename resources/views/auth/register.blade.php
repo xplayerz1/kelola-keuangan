@@ -99,6 +99,9 @@
                            name="password" 
                            required
                            placeholder="Minimal 8 karakter">
+                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                        <i class="fas fa-eye" id="togglePasswordIcon"></i>
+                    </button>
                     @error('password')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -116,6 +119,9 @@
                            name="password_confirmation" 
                            required
                            placeholder="Ulangi password">
+                    <button class="btn btn-outline-secondary" type="button" id="togglePasswordConfirmation">
+                        <i class="fas fa-eye" id="togglePasswordConfirmationIcon"></i>
+                    </button>
                 </div>
             </div>
             
@@ -201,6 +207,38 @@ document.getElementById('provinsi').addEventListener('change', async function() 
 document.getElementById('kabkota').addEventListener('change', function() {
     const selectedText = this.options[this.selectedIndex].text;
     document.getElementById('kabkota_nama').value = selectedText !== '-- Pilih Kabupaten/Kota --' ? selectedText : '';
+});
+
+// Toggle password visibility
+document.getElementById('togglePassword').addEventListener('click', function() {
+    const passwordInput = document.getElementById('password');
+    const toggleIcon = document.getElementById('togglePasswordIcon');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        toggleIcon.classList.remove('fa-eye-slash');
+        toggleIcon.classList.add('fa-eye');
+    }
+});
+
+// Toggle password confirmation visibility
+document.getElementById('togglePasswordConfirmation').addEventListener('click', function() {
+    const passwordInput = document.getElementById('password_confirmation');
+    const toggleIcon = document.getElementById('togglePasswordConfirmationIcon');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.classList.remove('fa-eye');
+        toggleIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        toggleIcon.classList.remove('fa-eye-slash');
+        toggleIcon.classList.add('fa-eye');
+    }
 });
 </script>
 @endsection
